@@ -10,6 +10,39 @@
   </head>
 
   <body>
-    <%= yield %>
+    <header class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <spans class="header-logo">Bookers3</span>
+      <ul class="nav navbar-nav navbar-right nav-hover">
+        <li>
+          <%= link_to root_path do %>
+            <span class="glyphicon glyphicon-home" aria-hidden="true"></span>Home
+          <% end %>
+        </li>
+        <li>
+          <%= link_to home_about_path do %>
+            <span class="glyphicon glyphicon-link" aria-hidden="true"></span>About
+          <% end %>
+        </li>
+        <li>
+          <%= link_to "" do %>
+            <span class="glyphicon glyphicon-edit" aria-hidden="true"></span></span>sign_up
+          <% end %>
+        </li>
+        <li>
+          <%= link_to "" do %>
+            <span class="glyphicon glyphicon-log-in" aria-hidden="true">login
+          <% end %>
+        </li>
+      </ul>
+    </header>
+    <main>
+      <%= yield %>
+    </main>
+    <footer class="container">
+      <div class="row">
+        <p class="col-xs-offset-9">CopyRight Infratop.inc<p>
+      </div>
+    </footer>
   </body>
 </html>
