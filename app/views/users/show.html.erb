@@ -1,2 +1,36 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<div class="container">
+	<div class="row">
+		<div class="col-xs-3">
+			<p class="succes"><%= flash[:updateuser] %></p>
+			<%= render 'info', user: @user %>
+			<%= render 'books/new', booknew: @booknew%>
+		</div>
+		<div class="col-xs-9">
+			<h2>Books</h2>
+			<table class="table">
+				<thead>
+					<tr>
+						<th></th>
+						<th>Title</th>
+						<th>Opinion</th>
+					</tr>
+				</thead>
+				<% @books.each do |book| %>
+					<tr>
+						<td>
+							<%= attachment_image_tag book.user, :profile_image, :fill, 60, 60, fallback: 'noimage.png', size: '60x60' %>
+						</td>
+						<td>
+							<%= link_to book_path(book) do %>
+								<%= book.title %>
+							<% end %>
+						</td>
+						<td>
+							<%= book.body %>
+						</td>
+					</tr>
+				<% end %>
+			</table>
+		</div>
+	</div>
+</div>

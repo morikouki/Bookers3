@@ -1,8 +1,7 @@
 <h2>User info</h2>
 <table class="table">
-	<tr>
-		<th><%= attachment_image_tag user, :profile_image, :fill, 60, 60 %></th>
-	</tr>
+	<tbody>
+	  <%= attachment_image_tag user, :profile_image, :fill, 60, 60, fallback: 'noimage.png', size: '60x60' %>
 	<tr>
 		<th>name</th>
 		<td><%= user.name %></td>
@@ -11,5 +10,10 @@
 		<th>introduction</th>
 		<td><%= user.introduction %></td>
 	</tr>
+</tbody>
 </table>
-<%= link_to 'edit', edit_user_path(current_user.id) %>
+<div class="row">
+	<%= link_to edit_user_path(user) do %>
+		<span class="glyphicon glyphicon-wrench btn btn-default col-xs-12" aria-hidden="true"></span>
+	<% end %>
+</div>
