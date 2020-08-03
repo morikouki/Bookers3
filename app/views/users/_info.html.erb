@@ -1,0 +1,15 @@
+<h2>User info</h2>
+<table class="table">
+	<tr>
+		<th><%= attachment_image_tag user, :profile_image, :fill, 60, 60 %></th>
+	</tr>
+	<tr>
+		<th>name</th>
+		<td><%= user.name %></td>
+	</tr>
+	<tr>
+		<th>introduction</th>
+		<td><%= user.introduction %></td>
+	</tr>
+</table>
+<%= link_to 'edit', edit_user_path(current_user.id) %>
