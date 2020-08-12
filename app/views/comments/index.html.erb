@@ -1,0 +1,42 @@
+<div class="container">
+	<div class="row">
+		<div class="col-xs-3">
+			<%= render 'users/info', user: @user %>
+			<%= render 'books/new', booknew: @booknew %>
+			<h2>Comment</h2>
+			<%= form_for @commentnew,:url => {:action => :create} do |f| %>
+				<div class="row form-group">
+					<%= f.label :comment %><br>
+					<%= f.text_area :comment, class:'col-xs-12' %>
+				</div>
+				<div class="row">
+			 		<%= f.submit 'Create Comment', class:'btn btn-primary btn-block' %>
+			 	</div>
+			<% end %>
+		</div>
+		<div class="col-xs-9">
+			<h2>Comments!</h2>
+
+			
+
+			
+			<div class="book-image">
+				<%= attachment_image_tag @book, :image, :fill, 300, 300, fallback: 'noimage.png', size: '300x300' %>
+			</div>
+			<table class="table">
+				<thead>
+					<th>Name</th>
+					<th>comment</th>
+				</thead>
+				<tbody>
+					<% @comments.each do |comment| %>
+					<tr>
+						<td><%= @user.name %></td>
+						<td><%= comment.comment %></td>
+					</tr>
+		    		<% end %>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>

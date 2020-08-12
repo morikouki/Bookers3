@@ -22,6 +22,7 @@
 				<thead>
 					<tr>
 						<th></th>
+						<th>Image</th>
 						<th>Title</th>
 						<th>Opinion</th>
 					</tr>
@@ -32,6 +33,11 @@
 						<td>
 							<%= link_to user_path(book) do %>
 								<%= attachment_image_tag book.user, :profile_image, :fill, 60, 60, fallback: 'noimage.png', size: '60x60' %>
+							<% end %>
+						</td>
+						<td>
+							<%= link_to book_comments_path(book) do %>
+								<%= attachment_image_tag book, :image, :fill, 60, 60, fallback: 'noimage.png', size: '60x60' %>
 							<% end %>
 						</td>
 						<td>
