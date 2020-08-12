@@ -5,6 +5,10 @@ class Book < ApplicationRecord
 	attachment :image
 
 	has_many :comments, dependent: :destroy
+	has_many :favorites, dependent: :destroy
+
+	
+
 
 	validates :title, presence: true
 	validates :body, presence: true,

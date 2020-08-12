@@ -4,7 +4,7 @@
     <title>Bookers3</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <script src="https://kit.fontawesome.com/18f4d5da3c.js" crossorigin="anonymous"></script>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -64,6 +64,11 @@
         <p class="succes"><%= notice %></p>
       </div>
       <%= yield %>
+      <span class="scroll">
+        <a id="scroll-image" href="#">
+          <img src="/assets/arrow.png">
+        </a>
+      </span>
     </main>
     <footer class="container">
       <div class="row">

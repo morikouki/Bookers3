@@ -16,3 +16,19 @@
 //= require jquery
 //= require bootstrap-sprockets
 //= require_tree .
+
+$(function () {
+  $('#scroll-image').on('click',function(event){
+  	$('body, html').animate({
+  	  scrollTop:0
+  	}, 1000);
+  	event.preventDefault();
+  });
+  $('.fas').on('click',function(event){
+  	if ($('.fas').hasClass('active')){
+  	$('.fas').removeClass('active');
+  }else{
+  	$('.fas').addClass('active');
+  };
+  });
+});

@@ -1,0 +1,16 @@
+<div class="container">
+	<div class="row">
+		<div class="col-xs-6 col-xs-offset-3">
+			<h2>Comment Edit!</h2>
+			<%= form_for [@book, @comment] do |f| %>
+			<div class="form-group">
+				<%= f.label :comment %>
+				<%= f.text_area :comment %>
+			</div>
+			<div class="row">
+				<%= f.submit 'Update Comment', class:'btn btn-accesse' %>
+			</div>
+			<% end %>
+		</div>
+	</div>
+</div>
