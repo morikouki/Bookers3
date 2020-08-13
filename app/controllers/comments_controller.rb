@@ -20,12 +20,22 @@ class CommentsController < ApplicationController
   def edit
     @book = Book.find(params[:book_id])
     @comment = Comment.find(params[:id])
+    if @comment.user_id == current_user.id
+      render action: :edit
+    else
+      redirect_to books_path
+    end
   end
 
   def update
     @comment = Comment.find(params[:id])
-    @comment.update(comment_params)
-    redirect_to book_comments_path(params[:book_id])
+    if @comment.update(comment_params)
+       flash[:comment] = 'You have comment updated user successfully.'
+       redirect_to book_comments_path(params[:book_id])
+    else
+       @book = Book.find(params[:book_id])
+       render 'edit'
+    end
   end
 
   def destroy

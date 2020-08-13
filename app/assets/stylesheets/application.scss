@@ -72,10 +72,161 @@ a:visited {
 	color: red;
 }
 
+li {
+	list-style: none;
+}
 
+#hm-icon{
+  position: fixed;
+  right: 20px;
+  top: 20px;
+  z-index: 10;
+}
+.menu-trigger,
+.menu-trigger span {
+  display: inline-block;
+  transition: all .4s;
+  box-sizing: border-box;
+}
+.menu-trigger {
+  position: relative;
+  width: 40px;
+  height: 44px;
+}
+.menu-trigger span {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background-color: #000;
+  border-radius: 4px;
+}
+.menu-trigger span:nth-of-type(1) {
+  top: 0;
+}
+.menu-trigger span:nth-of-type(2) {
+  top: 20px;
+}
+.menu-trigger span:nth-of-type(3) {
+  bottom: 0;
+}
+.menu-trigger.active-menu span:nth-of-type(1) {
+  webkit-transform: translateY(20px) rotate(-45deg);
+  transform: translateY(20px) rotate(-45deg);
+  background-color: #fff;
+}
+.menu-trigger.active-menu span:nth-of-type(2) {
+  opacity: 0;
+}
+.menu-trigger.active-menu span:nth-of-type(3) {
+  webkit-transform: translateY(-20px) rotate(45deg);
+  transform: translateY(-20px) rotate(45deg);
+  background-color: #fff;
+}
+/* ------------------------ */
+/* ------ spメニュー ------ */
+/* ------------------------ */
+#sp-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #000;
+  color: #fff;
+  width: 100%;
+  min-height: 100%;
+  display: none;
+  z-index: 9;
+}
+#sp-menu li{
+  text-align: center;
+  margin-bottom: 30px;
+}
+#sp-menu a{
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+}
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
+.wrap{
+  width: 90%;
+  max-width: 800px;
+  margin: 0 auto;
+}
 
+.clearfix:after{
+  content:"";
+  clear: both;
+  display: block;
+}
+
+#tab-menu li {
+  float: left;
+  list-style-type: none;
+  width: 25%;
+}
+
+#tab-menu a {
+  color: #fff;
+  text-decoration: none;
+  display: block;
+  padding: 20px;
+  text-align: center;
+  background: #000;
+  border: 1px solid #000;
+  border-bottom: none;
+}
+
+#tab-menu .tab-active {
+  background: #fff;
+  color: #000;
+}
+
+#tab-contents .tab {
+  padding: 30px;
+  background: #fff;
+  border: 1px solid #000;
+  border-top: none;
+}
+
+#tab-contents p{
+  color:#000;
+  line-height: 2.5;
+}
+
+.favorites-logo {
+	color: #fff;
+}
+
+#favorites-name {
+	width: 800px;
+	padding: 50px 100px;
+	background-color: rgba(0,255,0,0.15);
+}
+
+.flex {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* 追加 */
+  align-items: center;
+}
+
+.flex > ul {
+	margin: 20px;
+}
+
+.none-box {
+	display: none;
+}
+
+.table {
+	margin-top: 30px;
+}
 
 
 

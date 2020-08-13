@@ -16,19 +16,33 @@
 //= require jquery
 //= require bootstrap-sprockets
 //= require_tree .
+document.addEventListener("turbolinks:load"
+, function () {
+	$(function () {
+	  $('#scroll-image').on('click',function(event){
+	  	$('body, html').animate({
+	  	  scrollTop:0
+	  	}, 1000);
+	  	event.preventDefault();
+	  });
+	  $('.fas').on('click',function(event){
+	  	$('.fas').toggleClass('active');
+	  });
 
-$(function () {
-  $('#scroll-image').on('click',function(event){
-  	$('body, html').animate({
-  	  scrollTop:0
-  	}, 1000);
-  	event.preventDefault();
-  });
-  $('.fas').on('click',function(event){
-  	if ($('.fas').hasClass('active')){
-  	$('.fas').removeClass('active');
-  }else{
-  	$('.fas').addClass('active');
-  };
-  });
-});
+	  $('.menu-trigger').on('click', function(event) {
+	    $(this).toggleClass('active-menu');
+	    $('#sp-menu').fadeToggle();
+	    event.preventDefault();
+	  });
+
+	  $('#tab-contents .tab[id != "tab1"]').hide();
+
+	  $('#tab-menu a').on('click',function(event){
+	  	$('.tab').hide();
+	  	$('.tab-active').removeClass('tab-active');
+	  	$(this).addClass('tab-active');
+	  	$($(this).attr('href')).show();
+        event.preventDefault();
+	  });
+	});
+ })

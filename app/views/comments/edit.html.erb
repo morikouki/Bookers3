@@ -1,6 +1,18 @@
 <div class="container">
 	<div class="row">
 		<div class="col-xs-6 col-xs-offset-3">
+			<% if @comment.errors.any? %>
+	   			<p class="error">error!!!!</p>
+			<% end %>
+			<% if @comment.errors.any? %>
+			  <div id="error_explanation" class="alert alert-danger">
+			    <ul>
+			      <% @comment.errors.full_messages.each do |message| %>
+			        <li><%= message %></li>
+			      <% end %>
+			    </ul>
+			  </div>
+			<% end %>
 			<h2>Comment Edit!</h2>
 			<%= form_for [@book, @comment] do |f| %>
 			<div class="form-group">
