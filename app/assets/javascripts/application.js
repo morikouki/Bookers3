@@ -49,5 +49,6 @@ document.addEventListener("turbolinks:load"
 	  	$('.none-box').slideToggle();
 	  	event.preventDefault();
 	  });
+	  
 	});
  })

@@ -16,25 +16,24 @@
 			<% end %>
 		</div>
 		<div class="col-xs-9">
-			<h2>Comments!</h2>
+			<h2>Comments!<i class="fas fa-heart"></i></h2>
 			<div class="book-image">
 				<%= attachment_image_tag @book, :image, :fill, 300, 300, fallback: 'noimage.png', size: '300x300' %>
 				<% if @book.favorited_by?(current_user) %>
-				<li>
+				<li class="favorite-list">
 				  <%= link_to book_favorites_path(@book), method: :delete do %>
 				    <i class="fa fa-heart" aria-hidden="true" style="color: red;"></i>
 				    <%= @book.favorites.count %> いいねを取り消す
 				  <% end %>
 				</li>
 				<% else %>
-				<li>
+				<li class="favorite-list">
 				  <%= link_to book_favorites_path(@book), method: :post do %>
 				    <i class="fa fa-heart-o" aria-hidden="true"></i>
 				    <%= @book.favorites.count %> いいね
 				  <% end %>
 				</li>
 				<% end %>
-				<i class="fas fa-heart"></i>
 			</div>
 				<div class="row">
 					<p id="favoriters" class="favorites-logo btn btn-success col-xs-6 col-xs-offset-3">いいねしたユーザー！</p>
@@ -92,10 +91,10 @@
 			
 			<div class="wrap">
 			    <ul id="tab-menu" class="clearfix">
-			      <li><a href="#tab1" class="tab-active">NAME</a></li>
-			      <li><a href="#tab2" class="">TAB2</a></li>
-			      <li><a href="#tab3" class="">TAB3</a></li>
-			      <li><a href="#tab4" class="">TAB4</a></li>
+			      <li><a href="#tab1" class="tab-active">Image</a></li>
+			      <li><a href="#tab2" class="">自己紹介</a></li>
+			      <li><a href="#tab3" class="">Email</a></li>
+			      <li><a href="#tab4" class="">コメント</a></li>
 			    </ul>
 			    
 			    <div id="tab-contents" class="clearfix">
@@ -104,10 +103,10 @@
 				      	<table class="table">
 				      		<tbody>
 				      			<td>
+				      				<p>ユーザー名：<%= comment.user.name %></p>
 							        <%= link_to user_path(comment.user) do %>
 										<%= attachment_image_tag comment.user, :profile_image, :fill, 60, 60, fallback: 'noimage.png', size: '60x60' %>
 									<% end %>
-									<%= comment.user.name %>
 								</td>
 							</tbody>
 						</table>
@@ -118,21 +117,39 @@
 				      	<table class="table">
 				      		<tbody>
 				      			<td>
-									<%= comment.comment %>
+				      				<p>ユーザー名：<%= comment.user.name %></p>
+									<p>自己紹介：<%= comment.user.introduction %></p>
 								</td>
 							</tbody>
 						</table>
 						<% end %>
 			        </div>
 
-			      <div id="tab3" class="tab">
-			        <p>TAB3のテキストが入ります。TAB３のテキストが入ります。TAB3のテキストが入ります。</p>
-			      </div>
+			      　<div id="tab3" class="tab">
+			      	    <% @comments.each do |comment| %>
+				      	<table class="table">
+				      		<tbody>
+				      			<td>
+				      				<p>ユーザー名：<%= comment.user.name %></p>
+									<p>メールアドレス：<%= comment.user.email %></p>
+								</td>
+							</tbody>
+						</table>
+						<% end %>
+			      　</div>
 
-			      <div id="tab4" class="tab">
-			        <p>TAB4のテキストが入ります。TAB4のテキストが入ります。TAB4のテキストが入ります。TAB4のテキストが入ります。</p>
-			      </div>
-			      
+			        <div id="tab4" class="tab">
+			            <% @comments.each do |comment| %>
+				      	<table class="table">
+				      		<tbody>
+				      			<td>
+				      				<p>ユーザー名：<%= comment.user.name %></p>
+									<p>コメント：<%= comment.comment %></p>
+								</td>
+							</tbody>
+						</table>
+						<% end %>
+			        </div>
 			    </div>
 			</div>
 		</div>
