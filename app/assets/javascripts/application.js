@@ -44,5 +44,10 @@ document.addEventListener("turbolinks:load"
 	  	$($(this).attr('href')).show();
         event.preventDefault();
 	  });
+
+	  $('#favoriters').on('click',function(event){
+	  	$('.none-box').slideToggle();
+	  	event.preventDefault();
+	  });
 	});
  })
