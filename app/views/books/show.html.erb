@@ -10,19 +10,19 @@
 			<h1>Book detail</h1>
 			<table class="table">
 				<tbody>
-				<tr>
-					<td>
-						<%= link_to user_path(@user) do %>
-							<%= attachment_image_tag @book.user, :profile_image, :fill, 60, 60, fallback: 'noimage.png', size: '60x60' %><br>
-							<%= @book.user.name %>
-						<% end %>
-					</td>
-					<td>
-						<%= @book.title %>
-					</td>
-					<td>
-						<%= @book.body %>
-					</td>
+					<tr>
+						<td>
+							<%= link_to user_path(@user) do %>
+								<%= attachment_image_tag @book.user, :profile_image, :fill, 60, 60, fallback: 'noimage.png', size: '60x60' %><br>
+								<%= @book.user.name %>
+							<% end %>
+						</td>
+						<td>
+							<%= @book.title %>
+						</td>
+						<td>
+							<%= @book.body %>
+						</td>
 					<% if @book.user_id == current_user.id %>
 						<td>
 							<%= link_to 'Edit', edit_book_path(@book), class:'btn btn-success btn-sm' %>
@@ -31,8 +31,8 @@
 							<%= link_to 'Destroy', book_path(@book), class:'btn btn-danger btn-sm', method: :delete, "data-confirm" => "本当に消しますか?" %>
 						</td>
 					<% end %>
-				</tr>
-			</tbody>
+					</tr>
+				</tbody>
 			</table>
 		</div>
 	</div>
