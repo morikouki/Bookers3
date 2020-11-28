@@ -5,5 +5,4 @@ class CommentsControllerTest < ActionDispatch::IntegrationTest
     get comments_index_url
     assert_response :success
   end
-
 end
