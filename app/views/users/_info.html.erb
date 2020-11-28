@@ -12,11 +12,19 @@
 		</tr>
 		<tr>
 			<th>フォロワー</th>
-			<td><%= user.followed_user.count %></td>
+			<td>
+				<%= link_to user_followed_path(user) do %>
+					<%= user.followed_user.count %>
+				<% end %>
+			</td>
 		</tr>
 		<tr>
 			<th>フォロー中</th>
-			<td><%= user.follower_user.count %></td>
+			<td>
+				<%= link_to user_follower_path(user) do %>
+					<%= user.follower_user.count %>
+				<% end %>
+			</td>
 		</tr>
 	</tbody>
 </table>

@@ -1,0 +1,10 @@
+<div>
+	<% if @users.count == 0 %>
+		フォロー中ユーザーがいません
+	<% else %>
+		<% @users.each do |user| %>
+			<%= attachment_image_tag user, :profile_image, fallback: 'noimage.jpg', size: '30x30' %>
+			<%= user.name %>
+		<% end %>
+	<% end %>
+</div>
