@@ -12,36 +12,18 @@
 		</tr>
 		<tr>
 			<th>フォロワー</th>
-			<td>
-				<%= link_to user_followed_path(user) do %>
-					<%= user.followed_user.count %>
-				<% end %>
+			<td class="followed-count">
+				<%= render 'relationships/followed_count', user: user %>
 			</td>
 		</tr>
 		<tr>
 			<th>フォロー中</th>
-			<td>
-				<%= link_to user_follower_path(user) do %>
-					<%= user.follower_user.count %>
-				<% end %>
+			<td class="follower-count">
+				<%= render 'relationships/follower_count', user: user %>
 			</td>
 		</tr>
 	</tbody>
 </table>
-<div class="row">
-	<% if current_user == user %>
-		<%= link_to edit_user_path(user) do %>
-			<span class="glyphicon glyphicon-wrench btn btn-default col-xs-12" aria-hidden="true"></span>
-		<% end %>
-	<% else %>
-		<% if current_user.following?(user) %>
-			<%= link_to user_relationships_path(user), method: :delete, class: 'btn btn-success' do %>
-				フォロー外す
-			<% end %>
-		<% else %>
-			<%= link_to user_relationships_path(user), method: :post, class: 'btn btn-primary' do %>
-				フォローする
-			<% end %>
-		<% end %>
-	<% end %>
+<div class="row" id="relationship<%= user.id %>">
+	<%= render 'relationships/follow', user: user %>
 </div>
